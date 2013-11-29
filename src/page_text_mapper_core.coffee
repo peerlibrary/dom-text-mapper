@@ -1,5 +1,8 @@
+# Will be window in a browser, but allows custom loading
+global = this
+
 # Common functions for all page-based document mapper modules
-class window.PageTextMapperCore
+class global.PageTextMapperCore
 
   CONTEXT_LEN: 32
 

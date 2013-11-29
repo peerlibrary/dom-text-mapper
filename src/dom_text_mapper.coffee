@@ -1,4 +1,7 @@
-class window.DomTextMapper
+# Will be window in a browser, but allows custom loading
+global = this
+
+class global.DomTextMapper
 
   @applicable: -> true
 
