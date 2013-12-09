@@ -102,8 +102,8 @@ class global.DomTextMapper
   #   node: reference to the DOM node
   #   content: the text content of the node, as rendered by the browser
   #   length: the length of the next content
-  scan: ->
-    if @domStableSince @lastScanned
+  scan: (force=false) ->
+    if not force and @domStableSince @lastScanned
 #      @log "We have a valid DOM structure cache."
       return
     else
