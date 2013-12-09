@@ -26,7 +26,7 @@ class window.DomTextMapper
 #    console.log "reason", event.reason ? "no reason"
 #    console.log "data", event.data
     @documentChanged()
-    @performUpdateOnNode event.srcElement, false, event.data
+    @performUpdateOnNode (event.target or event.srcElement), false, event.data
     @lastScanned = @timestamp()
 
   # Change the root node, and subscribe to the events
