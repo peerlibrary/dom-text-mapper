@@ -57,7 +57,7 @@ class global.PageTextMapperCore
   # Update the mappings for a given page
   _updateMap: (info) ->
     #console.log "Updating mappings for page #" + info.index
-    info.domMapper.scan true
+    info.domMapper.scan()
 
   # Delete the mappings for a given page
   _unmapPage: (info) ->
