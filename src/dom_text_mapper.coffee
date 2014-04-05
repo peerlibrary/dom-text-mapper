@@ -6,6 +6,7 @@ class window.DomTextMapper
   USE_EMPTY_TEXT_WORKAROUND = true
   SELECT_CHILDREN_INSTEAD = ["thead", "tbody", "tfoot", "ol", "a", "caption", "p", "span", "div", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "li", "form"]
   CONTEXT_LEN = 32
+  WHITESPACE_REGEX = /\s+/g
 
   @instances: 0
 
@@ -560,7 +561,7 @@ class window.DomTextMapper
   # Read and convert the text of the current selection.
   readSelectionText: (sel) ->
     sel or= @rootWin.getSelection()
-    sel.toString().trim().replace(/\n/g, " ").replace /\s{2,}/g, " "
+    sel.toString().trim().replace(WHITESPACE_REGEX, ' ')
 
   # Read the "text content" of a sub-tree of the DOM by
   # creating a selection from it
