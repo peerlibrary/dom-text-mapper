@@ -586,7 +586,7 @@ class global.DomTextMapper
 
     # the HTML source of the text inside a text element.
 #    @log "Calculating source position at " + match.element.path
-    sourceText = match.element.node.data.replace /\n/g, " "
+    sourceText = match.element.node.data.replace WHITESPACE_REGEX, " "
 #    @log "sourceText is '" + sourceText + "'"
 
     # what gets displayed, when the node is processed by the browser.
@@ -616,6 +616,9 @@ class global.DomTextMapper
         displayIndex++        
         if displayIndex is displayEnd
           sourceEnd = sourceIndex + 1
+      else if not sc? or not dc?
+        # sc or dc is undefined, we passed the end of available text. Something is wrong.
+        throw new Error "display and source text mismatch: '#{ sourceText }' vs. '#{ displayText }'"
 
       sourceIndex++
     match.startCorrected = sourceStart
