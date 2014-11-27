@@ -590,7 +590,7 @@ class global.DomTextMapper
 #    @log "sourceText is '" + sourceText + "'"
 
     # what gets displayed, when the node is processed by the browser.
-    displayText = match.element.content
+    displayText = match.element.content.replace WHITESPACE_REGEX, " "
 #    @log "displayText is '" + displayText + "'"
 
     # The selected charRange in displayText.
